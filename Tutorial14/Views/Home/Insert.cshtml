@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Insert";
+}
+
+<h2>Insert a new member</h2>
+@using (Html.BeginForm("DoInsert", "Home", FormMethod.Post))
+{
+
+    <div>
+        <label>Name</label><br />
+        @Html.TextBox("name", null, new { @class = "form-control", @type = "text" });
+    </div>
+    <div>
+        <label>Club name</label><br />
+        @Html.DropDownList(
+            "club_name",
+            new List<SelectListItem>
+            {
+                new SelectListItem { Text = "None", Value = "None" },
+                new SelectListItem { Text = "Blue Sky", Value = "Blue Sky" },
+                new SelectListItem { Text = "Rotary", Value = "Rotary" },
+                new SelectListItem { Text = "Red Hat", Value = "Red Hat" },
+                new SelectListItem { Text = "Spicy", Value = "Spicy" }
+            },
+            new { @class = "form-control" }
+        )
+    </div>
+
+    <div>
+        <label>Age</label><br />
+        @Html.TextBox("age", null, new { @class = "form-control", @type = "number", @min = "18" });
+    </div>
+    <div>
+        <label>Fee</label><br />
+        @Html.TextBox("fee", null, new { @class = "form-control", @type = "decimal" });
+    </div>
+    <button type="submit">Add</button>
+}
