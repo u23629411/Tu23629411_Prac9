@@ -20,11 +20,11 @@ namespace Tutorial14.Controllers
             return View();
         }
 
-        public ActionResult DoInsert(string name, string club_name, string age,decimal fee)
+        public ActionResult DoInsert(string name, string club_name, string age,int fee)
         {
             try
             {
-                SqlCommand myInsertCommand = new SqlCommand("Insert into Membership Values('" + name+"' ,'" + club_name+"','" + age+"'," + fee+" )", myConnection);
+                SqlCommand myInsertCommand = new SqlCommand("Insert into Membership Values('" + name+"' ,'" + club_name+"','" + age+ "'," + fee + ")", myConnection);
 
                 myConnection.Open();
                 int rowsAffected = myInsertCommand.ExecuteNonQuery();
